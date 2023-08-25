@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import TheWelcome from '@/components/TheWelcome.vue'
+import PasswordCard from '@/components/PasswordCard.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="container">
+    <PasswordCard />
   </main>
 </template>
+
+<style scoped>
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
