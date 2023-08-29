@@ -4,12 +4,19 @@
       <IconSwitch />
       <h3>Stay signed in</h3>
     </div>
-    <button>Continue</button>
+    <button @click="handleClick">Continue</button>
   </section>
 </template>
 
 <script setup>
 import IconSwitch from '@/components/icons/IconSwitch.vue'
+import { usePasswordStore } from '@/store/password.js'
+const store = usePasswordStore()
+
+function handleClick() {
+  alert(store.password)
+  store.resetPassword()
+}
 </script>
 
 <style>

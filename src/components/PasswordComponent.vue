@@ -4,27 +4,22 @@
       <div class="input-container">
         <div>
           <IconLock />
-          <input placeholder="*********" type="password" v-model.trim="password">
-          <p>{{ password }}</p>
+          <input placeholder="*********" type="password" :value="store.password" @change="inputChange($event)">
         </div>
           <IconEye />
       </div>
     </section>
 </template>
 
-<script>
+<script setup>
 import IconLock from '@/components/icons/IconLock.vue'
 import IconEye from '@/components/icons/IconEye.vue'
-export default {
-  data() {
-    return {
-      password: ''
-    }
-  },
-  components: {
-    IconLock,
-    IconEye 
-  }
+import { usePasswordStore } from '@/store/password.js'
+
+const store = usePasswordStore()
+function inputChange(e) {
+    const value = e.target.value
+    store.setPassword(value)
 }
 </script>
 
